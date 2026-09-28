@@ -28,8 +28,12 @@ while True:
     if seat_type in ['Gold', 'Premium']:
         break
     print("Invalid seat type! Please choose either 'Gold' or 'Premium'.")
-show_time = input("Which showtime would you like to watch (e.g., Afternoon, Evening, Night): ")
-
+while True:
+    show_time = input("Which showtime would you like to watch (e.g., Morning , Noon, Afternoon, Evening, Night): ").capitalize()
+    if show_time in ['Morning','Noon','Afternoon', 'Evening', 'Night']: 
+        break
+    
+    break 
 # membership and day check
 is_member_input = input("Are you a member (yes/no): ").strip().lower()
 is_member = is_member_input in ['yes', 'y', 'true', '1']
