@@ -23,7 +23,11 @@ if age >= 21:
 else:
     print('User is not eligible for Evening/Night shows')
     
-seat_type = input("Which kind of seat do you want to sit (Gold or Premium): ")
+while True:
+    seat_type = input("Which kind of seat do you want to sit (Gold or Premium): ").capitalize()
+    if seat_type in ['Gold', 'Premium']:
+        break
+    print("Invalid seat type! Please choose either 'Gold' or 'Premium'.")
 show_time = input("Which showtime would you like to watch (e.g., Afternoon, Evening, Night): ")
 
 # membership and day check
