@@ -32,16 +32,26 @@ while True:
     show_time = input("Which showtime would you like to watch (e.g., Morning , Noon, Afternoon, Evening, Night): ").capitalize()
     if show_time in ['Morning','Noon','Afternoon', 'Evening', 'Night']: 
         break
-    
-    break 
+    print("Invalid showtime! Please choose either Morning , Noon, Afternoon, Evening, Night.")
 # membership and day check
-is_member_input = input("Are you a member (yes/no): ").strip().lower()
-is_member = is_member_input in ['yes', 'y', 'true', '1']
+while True:
+    is_member_input = input("Are you a member (yes/no): ").strip().lower()
+    if is_member_input in ['yes', 'y', 'true', '1', 'no', 'n', 'false', '0']:
+        is_member = is_member_input in ['yes', 'y', 'true', '1']
+        break
+    print("Invalid input! Please answer with 'yes' or 'no'.")
 
 is_weekend = True
-day = int(input("Which day of the week would you like to watch it? (1-7): "))
-if day in range(1, 6):  # for weekdays
-    is_weekend = False
+while True:
+    try:
+        day = int(input("Which day of the week would you like to watch it? (1-7): "))
+        if 1 <= day <= 7:
+            if day in range(1, 6):  #1-5 weekdays
+                is_weekend = False
+            break
+        print("Please enter a number between 1 and 7.")
+    except ValueError:
+        print("Invalid input! Please enter a number between 1 and 7.")
 
 # calculating discount
 discount = 0
@@ -79,3 +89,5 @@ if age >= 21 or (age >= 18 and (show_time.capitalize() != 'Evening' or is_member
     
 else:
     print('Ticket booking failed due to restrictions')
+
+input("\nPress Enter to leave...")
