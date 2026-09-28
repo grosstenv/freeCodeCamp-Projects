@@ -45,3 +45,4 @@ if age >= 21 or age >= 18 and (show_time != 'Evening' or is_member):
     
 else:
     print('Ticket booking failed due to restrictions')
+input("\nPress Enter to leave...")
