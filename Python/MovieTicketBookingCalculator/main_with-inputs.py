@@ -3,18 +3,28 @@
 base_price = 15
 
 # inputs
-age = int(input("What is your age: "))
-seat_type = input("Which kind of seat do you want to sit (Gold or Premium): ")
-show_time = input("Which showtime would you like to watch (e.g., Afternoon, Evening, Night): ")
+while True:
+    try:
+        age = int(input("What is your age: "))
+        if age < 0:
+            print('Age cannot be negative. Please try again.')
+            continue
+        break
+    except ValueError:
+        print('Invalid input! Please enter a valid number for your age.')
 
 # age check
 if age > 17:
     print('User is eligible to book a ticket')
-
-if age >= 21:
-    print('User is eligible for Evening shows')
 else:
-    print('User is not eligible for Evening shows')
+    print('User is not eligible to book a ticket.')
+if age >= 21:
+    print('User is eligible for Evening/Night shows')
+else:
+    print('User is not eligible for Evening/Night shows')
+    
+seat_type = input("Which kind of seat do you want to sit (Gold or Premium): ")
+show_time = input("Which showtime would you like to watch (e.g., Afternoon, Evening, Night): ")
 
 # membership and day check
 is_member_input = input("Are you a member (yes/no): ").strip().lower()
